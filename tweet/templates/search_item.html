@@ -1,0 +1,32 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1 class="text-center mb-4">Search Results</h1>
+
+    {% if tweets %}
+        <div class="row">
+            {% for tweet in tweets %}
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm h-100">
+                    <img 
+                        src="{{ tweet.photo.url }}" 
+                        class="card-img-top" 
+                        alt="Tweet Image" 
+                        style="width: 100%; height: auto; max-height: 350px ;"
+                    >
+                    <div class="card-body">
+                        <h5 class="card-title">{{ tweet.user.username }}</h5>
+                        <p class="card-text">{{ tweet.text }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="alert alert-warning text-center">
+            No tweets found for "<strong>{{ query }}</strong>".
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,14 @@
+python -m pip install pillow
+in settings ⚗️ MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+then for sttic folder: STATIC_URL = 'static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')]
+then in url attach:  +static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+and import: from django.conf import settings
+from django.conf.urls.static import static
+
+Then creat app in app make urls.py file and copy exact of urls.py in project add your app name in settings and also add directory so that you can keep templates in every app that you will hunt
+now add urls to inform project that you have new app e.g: path('tweet/', inlcude('tweet.urls')),
+
+
+we have to register our model to admin.py
